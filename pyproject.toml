@@ -6,7 +6,7 @@ authors = [
     { name = "Alexander Buccheri", email = "alexander.buccheri@mpsd.mpg.de"},
     { name = "Fabian Peschel",     email = "peschelf@physik.hu-berlin.de"}
 ]
-license = {file = "LICENSE.txt"}
+license = {file = "COPYING.md"}
 readme = "README.md"
 requires-python = ">=3.6"
 
@@ -14,12 +14,12 @@ dependencies = [
     'wheel>=0.35.0',
     'numpy>=1.14.5',
     'matplotlib>=2.2.0',
-    'pytest'
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest"
+    "pytest",
+    "ase>=3.20.0"
 ]
 
 [project.urls]
