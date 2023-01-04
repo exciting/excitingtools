@@ -1,21 +1,21 @@
-name: Open Journals PDF Generator
-uses: openjournals/openjournals-draft-action@v.1.0
-
-on: [push]
-
-jobs:
-  paper:
-    runs-on: ubuntu-latest
-    name: Paper Draft
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - name: Build draft PDF
-        uses: openjournals/openjournals-draft-action@master
-        with:
-          journal: joss
-          # This should be the path to the paper within your repo.
-          paper-path: paper/paper.md
+#name: Open Journals PDF Generator
+#uses: openjournals/openjournals-draft-action@v.1.0
+#
+#on: [push]
+#
+#jobs:
+#  paper:
+#    runs-on: ubuntu-latest
+#    name: Paper Draft
+#    steps:
+#      - name: Checkout
+#        uses: actions/checkout@v2
+#      - name: Build draft PDF
+#        uses: openjournals/openjournals-draft-action@master
+#        with:
+#          journal: joss
+#          # This should be the path to the paper within your repo.
+#          paper-path: paper/paper.md
 #      - name: Upload
 #        uses: actions/upload-artifact@v1
 #        with:
@@ -25,22 +25,22 @@ jobs:
 #          # paper.md
 #          path: paper/paper.pdf
 
-# Write my own... this almost works, but probably need to install the full texlive
-#name: Open Journals PDF Generator
-#
-#on: [push]
-#
-#jobs:
-#  paper:
-#    runs-on: ubuntu-latest
-#    name: Paper Draft
-#    steps:
-#      - uses: actions/checkout@v3
-#      - name: Compile
-#        run: |
-#          sudo apt-get update && sudo apt-get install -y pandoc pandoc-citeproc texlive texlive-latex-extra
-#          pandoc --filter pandoc-citeproc --bibliography=paper/paper.bib -s paper/paper.md -o paper/paper.pdf --template paper/latex.template
-#      - uses: actions/upload-artifact@v3
-#        with:
-#          name: joss-paper
-#          path: paper/paper.pdf
+# Write my own
+name: Open Journals PDF Generator
+
+on: [push]
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    name: Paper Draft
+    steps:
+      - uses: actions/checkout@v3
+      - name: Compile
+        run: |
+          sudo apt-get update && sudo apt-get install -y pandoc pandoc-citeproc texlive texlive-latex-extra texlive-science texlive-publishers
+          pandoc --filter pandoc-citeproc --bibliography=paper/paper.bib -s paper/paper.md -o paper/paper.pdf --template paper/latex.template
+      - uses: actions/upload-artifact@v3
+        with:
+          name: joss-paper
+          path: paper/paper.pdf
