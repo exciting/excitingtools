@@ -1,0 +1,36 @@
+[project]
+name = "excitingtools"
+description = "Utilities for aiding in the construction of exciting inputs and the postprocessing exciting outputs."
+version = "1.1.0"
+authors = [
+    { name = "Alexander Buccheri", email = "alexander.buccheri@mpsd.mpg.de"},
+    { name = "Fabian Peschel",     email = "peschelf@physik.hu-berlin.de"}
+]
+license = {file = "COPYING.md"}
+readme = "README.md"
+requires-python = ">=3.6"
+
+dependencies = [
+    'wheel>=0.35.0',
+    'numpy>=1.14.5',
+    'matplotlib>=2.2.0',
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "ase>=3.20.0"
+]
+
+[project.urls]
+repository = "https://github.com/exciting/excitingtools"
+
+[build-system]
+requires = [
+    "setuptools >= 35.0.2",
+    "setuptools_scm >= 2.0.0, <3"
+]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["excitingtools"]
