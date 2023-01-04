@@ -38,11 +38,11 @@ jobs:
       - uses: actions/checkout@v3
       - name: Compile
         run: |
-          sudo apt-get update && sudo apt-get install -y pandoc texlive-latex-recommended      
+          sudo apt-get update && sudo apt-get install -y pandoc pandoc-citeproc texlive-latex-recommended      
           pandoc --filter pandoc-citeproc --bibliography=paper/paper.bib -s paper/paper.md -o paper/paper.pdf --template paper/latex.template
 
-#      - uses: actions/upload-artifact@v3
-#      - name: Upload
-#        with:
-#          name: paper
-#          path: paper/paper.pdf
+      - uses: actions/upload-artifact@v3
+      - name: Upload
+        with:
+          name: paper
+          path: paper/paper.pdf
