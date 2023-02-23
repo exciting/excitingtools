@@ -3,6 +3,9 @@
 __pycache__/
 excitingtools.egg-info/
 
+# Build
+dist/
+
 # Git
 *.rej
 
