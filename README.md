@@ -308,10 +308,9 @@ where the less serialised data removes the key nesting.
 excitingtools is available as a separate package on PyPi. In order to upload a new version:
 
 ```bash
-# Ensure twine is installed
+# Ensure build and twine are installed
 pip3 install twine
-# Build the wheels
-cd $EXCITINGROOT/tools/exciting_tools
+# Build the wheel, in excitingtools root
 python -m build
 
 # Test the distribution and uploading (one requires a test-PyPi account)

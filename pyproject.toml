@@ -32,5 +32,8 @@ requires = [
 ]
 build-backend = "setuptools.build_meta"
 
+[tool.distutils.bdist_wheel]
+universal = true
+
 [tool.setuptools]
 packages = ["excitingtools"]
