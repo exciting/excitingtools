@@ -1,0 +1,12 @@
+{
+    // Recommended VS code extensions for developing with Python
+    "recommendations": [
+        "ms-python.python",
+        "ms-python.vscode-pylance",
+        "ms-python.pylint",
+        "ms-python.isort",
+        "ms-toolsai.jupyter",
+        "matangover.mypy",
+        "donjayamanne.python-environment-manager"
+    ]
+}
