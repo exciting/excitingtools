@@ -120,9 +120,7 @@ integration/deployment model, such that new features and updates are delivered s
     downloading the [NOMAD parsers](https://github.com/nomad-coe/nomad-parser-exciting) which return custom objects, 
     containing copious metadata. This is unnecessary for <span style="font-family:american typewriter; font-size:1em;">**exciting**</span>
     users, and prevents straightforward numerical comparison of parsed results.
-    - _excitingtools_ (plus dependencies) is significantly more lightweight than the NOMAD package, approximately two 
-    orders of magnitude smaller.
-  
+
 * API interoperability and serializable data structures allow easy integration with workflow managers.
     - These features allow the user to create simulation input files, run simulations and analyze data with Python, paving the way to 
     high-throughput calculations with <span style="font-family:american typewriter; font-size:1em;">**exciting**</span>.
