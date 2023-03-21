@@ -69,7 +69,7 @@ indication of the optimal settings and suitable DFT approximations is extremely 
 materials databases for excited state calculations are, in general, strongly lacking. The generation of large amounts of 
 excited state data will require both reliable ground state calculations as inputs and analogous benchmark-quality 
 calculations. Moreover, machine learning models that predict material properties would greatly benefit from the 
-availability of higher-fidelity data sets for a range of systems.
+availability of higher-fidelity data sets for a range of systems [@draxl:2020; @toniato:2021; @dong:2022].
 
 With demand for more calculations of higher precision and increased complexity, comes the need for more complex workflows, 
 handled in a systematic, automated manner. To illustrate this point in the context of 
@@ -78,7 +78,7 @@ systematic convergence of calculations, even at the ground state level of theory
 plane wave or Gaussian type orbital (GTO) basis sets. For example, one is free to choose any non-overlapping radii for 
 the muffin-tin spheres of each atomic species, and any number of LAPWs and LOs. And for each of these basis functions, 
 one is also free to choose the matching order of radial functions, orbital angular momenta, and trial energy parameters 
-associated with them [@gulans:2014]. This is before performing the conventional convergence tests, as done in all DFT 
+associated with them [@andersen:1975; @gulans:2014; @blaha:2020]. This is before performing the conventional convergence tests, as done in all DFT 
 calculations.
 
 In order to perform systematically-converged, reproducible, benchmark-quality calculations for ground and excited state
