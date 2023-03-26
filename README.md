@@ -303,6 +303,41 @@ One could also structure the data like:
 
 where the less serialised data removes the key nesting.
 
+## Usage in Workflow Engines
+
+<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> has been designed with materials 
+workflows in mind, and can be used to as a means of interacting with <span style="font-family:american typewriter; font-size:1em;">**exciting**</span>
+from python, to define calculations or parse results. A workflow can be imagined as a series of single-responsibility function calls, 
+forming a recipe of computational steps. For example, one might wish to design a workflow to converge a quantity such as 
+k-sampling. Abstractly, this might look like:
+
+```python
+"""Simple convergence workflow
+"""
+
+# Read input from input file:
+specified_input = read_input(Path("input.yml").absolute())
+
+# Define convergence criterion
+convergence_criteria = get_convergence_criteria(specified_input)
+
+# Set up jobs
+exciting_calc = setup_exciting_calculation(specified_input)
+convergence_job = converge_ngridk(exciting_calc.output, convergence_criteria, [])
+
+# Run workflow using Jobflow
+responses = run_locally(Flow([exciting_calc, convergence_job]),
+store=JobStore(MemoryStore()))
+```
+
+where an <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> calculation or calculator can 
+be defined using <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> functionality.
+It is then down to the developer to determine how to concretely implement a means of constructing
+calculators with different k-sampling, and how to evaluate convergence. For each step in a workflow, Jobflow can be used 
+as a decorator, allowing it to capture steps and serialise the information passed between functions. Tutorials on 
+developing a workflow using Jobflow can be found on [here](https://materialsproject.github.io/jobflow/tutorials.html).
+
+
 ## Uploading to PyPi
 
 excitingtools is available as a separate package on PyPi. In order to upload a new version:
