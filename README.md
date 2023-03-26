@@ -1,27 +1,27 @@
 # excitingtools
-<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> is a collection of 
+
+<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> is a collection of
 modules to facilitate the generation of <span style="font-family:american typewriter; font-size:1em;">**exciting**</span>
-inputs and the post-processing of <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> outputs. 
+inputs and the post-processing of <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> outputs.
 
 <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> currently provides functionality for:
 
-* Generation of the <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> input XML file 
+* Generation of the <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> input XML file
   using Python classes:
-  - Currently supported for `groundstate`, `structure` and `BSE`
-
+  * Currently supported for `groundstate`, `structure` and `BSE`
 
 * Parsing of <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> outputs into Python dictionaries
 
-
 * High-level class API for interacting with results:
-  - Currently implemented for eigenvalues, band structure and DOS (without SO coupling)
+  * Currently implemented for eigenvalues, band structure and DOS (without SO coupling)
 
-making it is possible to define a calculation, run it, and parse the relevant outputs all from within Python. 
+making it is possible to define a calculation, run it, and parse the relevant outputs all from within Python.
 
 <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> is used by, or in conjunction with:
+
 * <span style="font-family:american typewriter; font-size:1em;">**exciting's**</span> regression-testing framework
   * Parsing of output data
-* <span style="font-family:american typewriter; font-size:1em;">**exciting's**</span> Jupyter notebook tutorials 
+* <span style="font-family:american typewriter; font-size:1em;">**exciting's**</span> Jupyter notebook tutorials
   * Data handling
 * [Atomic Simulation Environment (ASE)](https://wiki.fysik.dtu.dk/ase/)
   * Input and output handling in ASE's <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> calculator
@@ -29,7 +29,8 @@ making it is possible to define a calculation, run it, and parse the relevant ou
   * For the development of complex, automated <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> workflows  
 
 ## Installation
-If one wishes to import <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> in their own scripts, it can be installed from this project's root directory 
+
+If one wishes to import <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> in their own scripts, it can be installed from this project's root directory
 (`$EXCITING_ROOT/tools/exciting_tools`) with:
 
 ```bash
@@ -43,12 +44,14 @@ pip install excitingtools
 ```
 
 ## External Package Dependencies
-If a new external dependency is introduced to the package, this also requires adding to `setup.py` such that pip is aware 
+
+If a new external dependency is introduced to the package, this also requires adding to `setup.py` such that pip is aware
 of the new dependency.
 
-## Basic File Structure 
+## Basic File Structure
+
 In general, modules should begin with a docstring giving an overview of the module's purpose. External python
-libraries should then be imported, followed by a space, then local modules belonging to <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span>. Local modules 
+libraries should then be imported, followed by a space, then local modules belonging to <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span>. Local modules
 should be loaded with absolute paths rather than relative paths or prepending the system path `sys.path.insert(0,'/path/to/module_directory')`:
 
 ```angular2html
@@ -59,24 +62,29 @@ import numpy as np
 
 from excitingtools.maths.math_utils import triple_product
 ```
+
 Exposed modules, forming user API, should be defined in `__init__.py` where ever possible.
 
-## Code Formatting 
-We currently favour [yapf](https://github.com/google/yapf) formatter, which by default applies PEP8 formatting to 
+## Code Formatting
+
+We currently favour [yapf](https://github.com/google/yapf) formatter, which by default applies PEP8 formatting to
 the code.  
 
 After installing yapf, if you are in the root directory of excitingtools, you can simply type:
+
 ```bash
 yapf -i excitingtools/path/to/file.py
 ```
+
 and it will do the formatting for you. Note: This will automatically use our custom `.style.yapf` style-file.
 
-## Documentation 
+## Documentation
 
 ### Writing Documentation
+
 All functions and classes should be documented. The favoured docstring is *reStructuredText*:
 
-```python3
+```python
 class SimpleEquation:
    def demo(self, a: int, b: int, c: int) -> list:
     """Function definition.
@@ -88,12 +96,13 @@ class SimpleEquation:
     :return list y: Function values   
     """
 ```
+
 where the type can be specified in the `param` description, or separately using the `type` tag. For more details on the
 documentation syntax, please refer to this [link](https://devguide.python.org/documenting/). The [google style guide](
-https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html) for *reStructuredText* docstrings is also 
-acceptable to follow. 
+<https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_google.html>) for *reStructuredText* docstrings is also
+acceptable to follow.
 
-### Generating Documentation 
+### Generating Documentation
 
 Documentation can straightforwardly be generated using the [pdoc](https://docs.python.org/3/library/pydoc.html) package:
 
@@ -102,17 +111,15 @@ pip install pdoc
 pdoc -o documentation -d restructuredtext --math excitingtools/
 ```
 
-- [ ] TODO(Alex) Issue 57. Set up generation of documentation from docstrings, with Sphinx 
-
 ### Basic Usage
 
 #### Input XML Generation
 
-<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> maps the XML tags and attributes 
-of `input.xml` onto Python classes, enabling the generation of XML-formatted inputs directly from Python. A simple 
+<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> maps the XML tags and attributes
+of `input.xml` onto Python classes, enabling the generation of XML-formatted inputs directly from Python. A simple
 ground state calculation could like this:
 
-```python3
+```python
 import ase
 import numpy as np
 
@@ -150,11 +157,12 @@ input_xml_str = exciting_input_xml_str(structure, ground_state, title="My exciti
 with open("input.xml", "w") as fid:
     fid.write(input_xml_str)
 ```
-Here we defined the attributes required to perform a ground state calculation as seperate classes, and composed the 
-final XML string with `exciting_input_xml_str`. If the user does not have access to ASE, they can instead use a 
+
+Here we defined the attributes required to perform a ground state calculation as seperate classes, and composed the
+final XML string with `exciting_input_xml_str`. If the user does not have access to ASE, they can instead use a
 `List[dict]` to define the container with atoms data:
 
-```python3
+```python
 atoms = [{'species': 'W', 'position': [0.00000000, 0.00000000, 16.68421565]},
          {'species': 'S', 'position': [1.58419708, 0.91463661, 18.25982194]},
          {'species': 'S', 'position': [1.58419708, 0.91463661, 15.10652203]},
@@ -165,15 +173,16 @@ atoms = [{'species': 'W', 'position': [0.00000000, 0.00000000, 16.68421565]},
 structure = ExcitingStructure(atoms, lattice, species_path='.')
 ```
 
-Additional examples can be found in the test cases, `exciting_tools/tests/input`. We note that not all XML tags 
-currently map onto Python classes. One can consult `exciting_tools/excitingtools/input` to see what is available. 
-Development follows a continuous integration and deployment workflow, therefore if one wishes for additional features, 
+Additional examples can be found in the test cases, `exciting_tools/tests/input`. We note that not all XML tags
+currently map onto Python classes. One can consult `exciting_tools/excitingtools/input` to see what is available.
+Development follows a continuous integration and deployment workflow, therefore if one wishes for additional features,
 please make a request on Github issues or open a merge request.
 
 #### Binary Execution
 
 Next we can define a runner and run our calculation:
-```python3
+
+```python
 from excitingtools.runner.runner import BinaryRunner
 
 runner = BinaryRunner('exciting_smp', run_cmd=[''], omp_num_threads=4, time_out=500)
@@ -186,7 +195,7 @@ After the successful completion of the calculation, we can parse the relevant ou
 `parser_chooser`. These are the main files one would be interested in after performing a ground state calculation, for
 example:
 
-```python3
+```python
 from excitingtools import parser_chooser
 
 info_out: dict = parser_chooser("INFO.OUT")
@@ -238,13 +247,13 @@ for ib in range(0, band_data.n_bands):
 ```
 
 Tests demonstrating further usage are present in `excitingtools/tests/dataclasses`. We note that the high-level objects
-and their parsers are separated. In principle, the data classes should only define a sensible schema or API for 
+and their parsers are separated. In principle, the data classes should only define a sensible schema or API for
 accepting relevant data, rather than know anything about the parsing. Object parsers (defined in `obj_parsers`) by definition
-should return to data classes, but the data classes dictate the format of the data, not vice versa. 
+should return to data classes, but the data classes dictate the format of the data, not vice versa.
 
-## Testing 
+## Testing
 
-Every function should have a test where possible, unless the function is correct by inspection. The naming convention 
+Every function should have a test where possible, unless the function is correct by inspection. The naming convention
 for a module called `module.py` is to prepend it with `test_`, which allows it to be automatically recognised and run
 by *pytest*:
 
@@ -253,26 +262,27 @@ excitingtools/module.py       # Collection of functions
 tests/test_module.py          # Collection of tests for functions in module.py
 ```
 
-Tests are intended to be run using *pytest*, for which the documentation can be found [here](https://docs.pytest.org/en/stable/index.html). 
+Tests are intended to be run using *pytest*, for which the documentation can be found [here](https://docs.pytest.org/en/stable/index.html).
 One is able to run `pytest` from the `exciting_tools` root with no arguments. By default, all test files, classes and functions defined in the specification,
-`exciting_tools/pytest.ini`,  will get executed. 
+`exciting_tools/pytest.ini`,  will get executed.
 
-
-## Parsers 
+## Parsers
 
 The parsers are used in the test suite. Therefore, they should only return dictionaries with a specific structure.
- 
-The tolerance comparison will only evaluate the values of lowest-nested keys. As such, one should consider how they structure the parsed data. 
+
+The tolerance comparison will only evaluate the values of lowest-nested keys. As such, one should consider how they structure the parsed data.
 For example, it makes more sense to structure data like:
 
-```python3
+```python
 {‘wannier1’: {‘localisation_vector’: np.array(shape=(3)),
               ‘Omega’: float
              }
 }
 ```
+
 such that the tolerances will be w.r.t. `localisation_vector`, and `Omega`, rather than using the structure:
-```python3
+
+```python
 {‘localisation_vector’: {‘wannier1’:  np.array(shape=(3))
                          ‘wannier2’:  np.array(shape=(3))
                         },
@@ -281,10 +291,11 @@ such that the tolerances will be w.r.t. `localisation_vector`, and `Omega`, rath
           }
 }
 ```
+
 which will results in tolerances defined w.r.t. `wannier1` and `wannier2`. One can see in the latter case, there is no distinction between `localisation_vector` and `Omega`. In general, we’re more likely to want to set different tolerances for different properties, rather than for different functions with the same set of properties.
 One could also structure the data like:
 
-```python3
+```python
 {‘localisation_vector’: np.array(shape=(n_wannier, 3)),
  ‘Omega’: : np.array(shape=(n_wannier)
 }
@@ -292,16 +303,50 @@ One could also structure the data like:
 
 where the less serialised data removes the key nesting.
 
+## Usage in Workflow Engines
+
+<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> has been designed with materials 
+workflows in mind, and can be used to as a means of interacting with <span style="font-family:american typewriter; font-size:1em;">**exciting**</span>
+from python, to define calculations or parse results. A workflow can be imagined as a series of single-responsibility function calls, 
+forming a recipe of computational steps. For example, one might wish to design a workflow to converge a quantity such as 
+k-sampling. Abstractly, this might look like:
+
+```python
+"""Simple convergence workflow
+"""
+
+# Read input from input file:
+specified_input = read_input(Path("input.yml").absolute())
+
+# Define convergence criterion
+convergence_criteria = get_convergence_criteria(specified_input)
+
+# Set up jobs
+exciting_calc = setup_exciting_calculation(specified_input)
+convergence_job = converge_ngridk(exciting_calc.output, convergence_criteria, [])
+
+# Run workflow using Jobflow
+responses = run_locally(Flow([exciting_calc, convergence_job]),
+store=JobStore(MemoryStore()))
+```
+
+where an <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> calculation or calculator can 
+be defined using <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> functionality.
+It is then down to the developer to determine how to concretely implement a means of constructing
+calculators with different k-sampling, and how to evaluate convergence. For each step in a workflow, Jobflow can be used 
+as a decorator, allowing it to capture steps and serialise the information passed between functions. Tutorials on 
+developing a workflow using Jobflow can be found on [here](https://materialsproject.github.io/jobflow/tutorials.html).
+
+
 ## Uploading to PyPi
 
 excitingtools is available as a separate package on PyPi. In order to upload a new version:
 
 ```bash
-# Ensure twine is installed
+# Ensure build and twine are installed
 pip3 install twine
-# Build the wheels
-cd $EXCITINGROOT/tools/exciting_tools
-python3 -m build
+# Build the wheel, in excitingtools root
+python -m build
 
 # Test the distribution and uploading (one requires a test-PyPi account)
 twine check dist/*
@@ -313,8 +358,8 @@ twine upload dist/*
 
 Before doing so, please ensure the semantic versioning is appropriately updated in `setup.py`.
 
-
 ## Contributors
+
 The following people (in alphabetic order by their family names) have contributed to excitingtools:
 
 * Alexander Buccheri
