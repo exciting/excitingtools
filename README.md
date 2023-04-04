@@ -1,5 +1,6 @@
 # excitingtools
 
+
 <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> is a collection of
 modules to facilitate the generation of <span style="font-family:american typewriter; font-size:1em;">**exciting**</span>
 inputs and the post-processing of <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> outputs.
@@ -27,6 +28,7 @@ making it is possible to define a calculation, run it, and parse the relevant ou
   * Input and output handling in ASE's <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> calculator
 * [Jobflow](https://github.com/materialsproject/jobflow)
   * For the development of complex, automated <span style="font-family:american typewriter; font-size:1em;">**exciting**</span> workflows  
+
 
 ## Installation
 
@@ -338,7 +340,7 @@ as a decorator, allowing it to capture steps and serialise the information passe
 developing a workflow using Jobflow can be found on [here](https://materialsproject.github.io/jobflow/tutorials.html).
 
 
-## Uploading to PyPi
+## Uploading to PyPi (for developers)
 
 excitingtools is available as a separate package on PyPi. In order to upload a new version:
 
@@ -357,6 +359,18 @@ twine upload dist/*
 ```
 
 Before doing so, please ensure the semantic versioning is appropriately updated in `setup.py`.
+
+
+## Citing
+
+To cite <span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span>, please refer to the
+[CITATION.cff](CITATION.cff). 
+
+<span style="font-family:american typewriter; font-size:1em;">**excitingtools**</span> tag "1.3.0" is published in
+the [Journal of Open Source Software](https://joss.theoj.org) and archived on Zenodo:
+
+[![DOI](https://zenodo.org/badge/564833158.svg)](https://zenodo.org/badge/latestdoi/564833158)
+
 
 ## Contributors
 
