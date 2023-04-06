@@ -28,7 +28,7 @@ repository = "https://github.com/exciting/excitingtools"
 [build-system]
 requires = [
     "setuptools >= 35.0.2",
-    "setuptools_scm >= 2.0.0, <3"
+    "setuptools_scm >= 3.5.0"
 ]
 build-backend = "setuptools.build_meta"
 
